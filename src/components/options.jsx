@@ -1,4 +1,4 @@
-const Options = ({ options, onLeaveFeedback }) => {
+const Options = ({ options, onLeaveFeedback, total}) => {
   return (
     <ul className="options">
       {options.map(option => (
@@ -8,11 +8,13 @@ const Options = ({ options, onLeaveFeedback }) => {
           </button>
         </li>
       ))}
-      <li>
-        <button type="button" onClick={() => onLeaveFeedback("reset")}>
-          Reset
-        </button>
-      </li>
+      {total > 0 && (
+        <li>
+          <button type="button" onClick={() => onLeaveFeedback("reset")}>
+            Reset
+          </button>
+        </li>
+      )}
     </ul>
   );
 };
